@@ -4,7 +4,7 @@ function itemAdd(req, res, next){
     try{
         _itemSave(Object.entries(req.body));
 
-        res.status(201).json({work : true, data : itemsMap.keys()})
+        res.status(201).json({work : true, data : [...itemsMap.keys()]})
     }
     catch(err){
         next(err);

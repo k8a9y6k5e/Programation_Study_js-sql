@@ -11,3 +11,14 @@ app.use('/item', itemRouter);
 app.use(errorHandler);
 
 app.listen(3001);
+
+
+/*
+little roadmap:
+*show all items;
+*search items;
+*exclude items;
+*update items;
+*log history;
+*alert if the stock is low;
+*/

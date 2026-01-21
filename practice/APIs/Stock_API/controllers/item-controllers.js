@@ -20,4 +20,19 @@ function _itemSave(entries){
     }
 }
 
-module.exports = itemAdd;
+function showAll(req,res,next){
+    try{
+        if(_nullMapVerifier()) res.status(201).json({work : true, data : Object.fromEntries(itemsMap)});
+        else throw new Error('no items stored yet');
+    }
+    catch (err){
+        next(err);
+    }
+}
+
+function _nullMapVerifier(){
+    if(itemsMap.size != 0) return true;
+    else return false;
+}
+
+module.exports = {itemAdd, showAll};

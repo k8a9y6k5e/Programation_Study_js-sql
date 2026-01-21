@@ -12,6 +12,8 @@ function _statusCodeIdentifier(err){
             return 409;
         case "keys can't be empty":
             return 400;
+        case "no items stored yet":
+            return 200;
         default:
             switch(true){
                 case err.message.includes('code'):

@@ -15,7 +15,6 @@ app.listen(3001);
 
 /*
 little roadmap:
-*show all items;
 *search items;
 *exclude items;
 *update items;

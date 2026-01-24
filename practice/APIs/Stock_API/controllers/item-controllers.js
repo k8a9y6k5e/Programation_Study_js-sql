@@ -52,4 +52,19 @@ function _search(valueToFind){
     else throw new Error('value not exist');
 }
 
+function itemDelete(req, res, next){
+    try{
+        _excludeItem(req.params.item);
+        res.status(201).json({work:true, data : `${req.params.item} removed`});
+    }
+    catch (err){
+        next(err);
+    }
+}
+
+function _excludeItem(item){
+    if(itemsMap.has(item)) itemsMap.delete(item);
+    else throw new Error('item not exist');
+}
+
 module.exports = {itemAdd, showAll, searchItem};

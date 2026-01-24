@@ -29,13 +29,13 @@ function _itemValidator(requestBody){
     return result.data;
 }
 
-const _searchSchematic = z.object({
+const _noNullSchematic = z.object({
     search : z.string().trim().min(1)
 })
 
 function searchValidator(req,res,next){
     try{
-        const result = _searchSchematic.safeParse(req.query);
+        const result = _noNullSchematic.safeParse(req.query);
 
         if(!result.success) throw new Error("value to search can't be empty");
         
@@ -48,4 +48,19 @@ function searchValidator(req,res,next){
     }
 }
 
-module.exports = {itemValidator, searchValidator};
+function deleteValidator(req, res, next){
+    try{
+        const result = _noNullSchematic.safeParse(req.params);
+
+        if(!result.success) throw new Error("value to delete can't be null");
+
+        req.validatedParams = result.data;
+
+        next();
+    }
+    catch (err){
+        next(err);
+    }
+}
+
+module.exports = {itemValidator, searchValidator, deleteValidator};

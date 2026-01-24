@@ -54,7 +54,7 @@ function _search(valueToFind){
 
 function itemDelete(req, res, next){
     try{
-        _excludeItem(req.params.item);
+        _excludeItem(req.validatedParams.item);
         res.status(201).json({work:true, data : `${req.params.item} removed`});
     }
     catch (err){

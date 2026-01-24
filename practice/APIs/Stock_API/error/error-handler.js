@@ -13,6 +13,7 @@ function _statusCodeIdentifier(err){
         case "keys can't be empty":
         case "value not exist":
         case "value to search can't be empty":
+        case "value to delete can't be null":
             return 400;
         case "no items stored yet":
             return 200;

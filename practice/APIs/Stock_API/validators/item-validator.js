@@ -1,4 +1,5 @@
 const {z} = require('zod');
+const {NullSearchValueError, DeleteValueError, InvalidValueFormatError} = require('./../error/item-error');
 
 
 function itemValidator(req, res, next){
@@ -23,7 +24,7 @@ function _itemValidator(requestBody){
 
     if(!result.success) {
         const fieldName = result.error.issues[0].path.join(', ');
-        throw new Error(`ìnvalid format value in ${fieldName}`);
+        throw new InvalidValueFormatError(fieldName);
     }
 
     return result.data;
@@ -37,7 +38,7 @@ function searchValidator(req,res,next){
     try{
         const result = _searchSchematic.safeParse(req.query);
 
-        if(!result.success) throw new Error("value to search can't be empty");
+        if(!result.success) throw new NullSearchValueError();
         
         req.validatedQuery = result.data;
 
@@ -56,7 +57,7 @@ function deleteValidator(req, res, next){
     try{
         const result = _deleteSchematic.safeParse(req.params);
 
-        if(!result.success) throw new Error("value to delete can't be null");
+        if(!result.success) throw new DeleteValueError();
 
         req.validatedParams = result.data;
 

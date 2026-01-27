@@ -1,4 +1,4 @@
-const {ItemAlreadyExistError, NotExistError} = require('./../error/item-error');
+const {ItemAlreadyExistError, NotExistError, ItemNotExistError, NoItemStoredError} = require('./../error/item-error');
 
 const itemsMap = new Map();
 
@@ -18,14 +18,14 @@ function _itemSave(entries){
         let key = item[0];
         let value = item[1]
         if(!(itemsMap.has(key))) itemsMap.set(key, value);
-        else throw new ItemAlreadyExistError;
+        else throw new ItemAlreadyExistError();
     }
 }
 
 function showAll(req,res,next){
     try{
         if(_nullMapVerifier()) res.status(201).json({work : true, data : Object.fromEntries(itemsMap)});
-        else throw new Error('no items stored yet');
+        else throw new NoItemStoredError();
     }
     catch (err){
         next(err);
@@ -66,7 +66,7 @@ function itemDelete(req, res, next){
 
 function _excludeItem(item){
     if(itemsMap.has(item)) itemsMap.delete(item);
-    else throw new Error('item not exist');
+    else throw new ItemNotExistError();
 }
 
 module.exports = {itemAdd, showAll, searchItem, itemDelete};

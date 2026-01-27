@@ -24,6 +24,18 @@ class NullDeleteValueError extends ItemError{
     }
 }
 
+class NoItemStoredError extends ItemError{
+    constructor(){
+        super("no items stored yet", 200);
+    }
+}
+
+class ItemNotExistError extends ItemError{
+    constructor(){
+        super("item not exist" , 409);
+    }
+}
+
 module.exports = {ItemAlreadyExistError, NotExistError, NullSearchValueError,
-    NullDeleteValueError
+    NullDeleteValueError, NoItemStoredError, ItemNotExistError,
 };

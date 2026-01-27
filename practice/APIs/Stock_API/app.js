@@ -1,6 +1,6 @@
 const express = require('express');
 const itemRouter = require('./routers/item-routers');
-const errorHandler = require('./error/error-handler');
+const {errorHandler} = require('./error/error-handler');
 
 
 const app = express();

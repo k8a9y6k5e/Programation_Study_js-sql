@@ -1,3 +1,5 @@
+const {ItemAlreadyExistError} = require('./../error/item-error');
+
 const itemsMap = new Map();
 
 function itemAdd(req, res, next){
@@ -16,7 +18,7 @@ function _itemSave(entries){
         let key = item[0];
         let value = item[1]
         if(!(itemsMap.has(key))) itemsMap.set(key, value);
-        else throw new Error('item already exist');
+        else throw new ItemAlreadyExistError;
     }
 }
 

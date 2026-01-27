@@ -1,15 +1,11 @@
+const {z} = require('zod');
+
 function errorHandler(err, req, res, next){
-    console.log(err.stack);
-
-    const statusCode = _statusCodeIdentifier(err);
-
-    res.status(statusCode).json({work : false, error : err.message})
+    res.status(err.statusCode).json({work : false, error : err.message})
 }
 
 function _statusCodeIdentifier(err){
     switch (err.message){
-        case "item already exist":
-            return 409;
         case "keys can't be empty":
         case "value not exist":
         case "value to search can't be empty":
@@ -30,4 +26,36 @@ function _statusCodeIdentifier(err){
     }
 }
 
-module.exports = errorHandler;
+const _statusCodeSchematic = z.number();
+
+class ItemError extends Error{
+    constructor(message,statusCode){
+        super(message);
+        this.statusCode = statusCode;
+        this.name = this.constructor.name;
+    }
+
+    _statusCode = 500;
+
+    get statusCode(){
+        return this._statusCode;
+    }
+
+    set statusCode(value){
+        try{
+            const result = _statusCodeSchematic.safeParse(value);
+            
+            if(!result.success) throw new Error();//server error
+            
+            this._statusCode = value;
+        }  
+        catch (err){
+            //add a server error
+        }
+    }
+}
+
+//create server errors
+//create validator errors
+
+module.exports = {errorHandler, ItemError};

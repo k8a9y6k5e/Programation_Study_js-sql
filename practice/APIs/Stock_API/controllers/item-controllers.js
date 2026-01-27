@@ -57,7 +57,7 @@ function _search(valueToFind){
 function itemDelete(req, res, next){
     try{
         _excludeItem(req.validatedParams.item);
-        res.status(201).json({work:true, data : `${req.params.item} removed`});
+        res.status(201).json({work:true, data:`${req.params.item} removed`});
     }
     catch (err){
         next(err);
@@ -69,4 +69,26 @@ function _excludeItem(item){
     else throw new DeleteItemNotExistError();
 }
 
-module.exports = {itemAdd, showAll, searchItem, itemDelete};
+function updateItem(req, res, next){
+    try{
+        const result = _update(req.body, req.params.toChange);
+        
+        res.status(201).json({work:true, data:result});
+    }
+    catch (err){
+
+    }
+}
+
+function _update(toUpdate, toChange){
+    if(itemsMap.has(toChange))  {
+        const itemsObj = itemsMap.get(toChange);
+
+        itemsObj.quantity = toUpdate.quantity;
+        itemsObj.price = toUpdate.price;
+
+        return {toChange : itemsMap.get(toChange)};
+    }
+}
+
+module.exports = {itemAdd, showAll, searchItem, itemDelete, updateItem};

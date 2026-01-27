@@ -16,8 +16,9 @@ app.listen(3001);
 /*
 little roadmap:
 *update items;
-**update quantity;
-**update price;
+**update quantity - patch;
+**update price - patch;
+**both - put;
 *log history;
-*alert if the stock is low;
+*show history;
 */

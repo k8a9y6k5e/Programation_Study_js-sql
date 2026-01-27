@@ -116,7 +116,7 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] foreign-key.sql - Study about the use of foreign keys to connect tables;
 - [x] functions.sql - Study about a few functions in sql;
 - [x] joins.sql - Study about the forms to join two tables;
-- [x] limit.sql - ;
+- [x] limit.sql - Study about the use of the clause limit;
 - [x] logical-operators.sql - Study about the use of logical operators to check more than one condition;
 - [x] not_null.sql - Study about the constraint NOT NULL, to block null values;
 - [x] order-by.sql - Study about the command ORDER BY, and how use it;

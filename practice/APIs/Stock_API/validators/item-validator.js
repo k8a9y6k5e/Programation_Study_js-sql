@@ -1,4 +1,5 @@
 const {z} = require('zod');
+const {NullSearchValueError} = require('./../error/item-error');
 
 
 function itemValidator(req, res, next){
@@ -37,7 +38,7 @@ function searchValidator(req,res,next){
     try{
         const result = _searchSchematic.safeParse(req.query);
 
-        if(!result.success) throw new Error("value to search can't be empty");
+        if(!result.success) throw new NullSearchValueError();
         
         req.validatedQuery = result.data;
 

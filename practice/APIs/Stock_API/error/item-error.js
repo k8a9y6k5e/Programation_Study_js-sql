@@ -12,4 +12,10 @@ class NotExistError extends ItemError{
     }
 }
 
-module.exports = {ItemAlreadyExistError, NotExistError};
+class NullSearchValueError extends ItemError{
+    constructor(){
+        super("value to search can't be empty", 400)
+    }
+}
+
+module.exports = {ItemAlreadyExistError, NotExistError, NullSearchValueError};

@@ -68,4 +68,24 @@ function deleteValidator(req, res, next){
     }
 }
 
-module.exports = {itemValidator, searchValidator, deleteValidator};
+const _updatePutSchematic = z.object({
+    quantity : z.number().nonnegative(),
+    price : z.number().nonnegative()
+});
+
+function updatePutValidator(req,res,next){
+    try{
+        const result = _updatePutSchematic.safeParse(req.body);
+
+        if(!result.success) throw new Error();
+
+        req.validatedBody = result.data;
+
+        next();
+    }
+    catch(err){
+        next(err);
+    }
+}
+
+module.exports = {itemValidator, searchValidator, deleteValidator, updatePutValidator};

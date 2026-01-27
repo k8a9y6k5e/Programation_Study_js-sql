@@ -76,7 +76,7 @@ function updateItem(req, res, next){
         res.status(201).json({work:true, data:result});
     }
     catch (err){
-
+        next(err);
     }
 }
 

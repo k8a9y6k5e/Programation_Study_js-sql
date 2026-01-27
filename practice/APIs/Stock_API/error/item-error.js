@@ -42,5 +42,18 @@ class InvalidValueFormatError extends ItemError{
     }
 }
 
+class UpdatePutValidatorError extends ItemError{
+    constructor(){
+        super("invalid value to update", 400);
+    }
+}
+
+class UpdateError extends ItemError{
+    constructor(item){
+        super(`${item} isn't found`, 400);
+    }
+}
+
 module.exports = {ItemAlreadyExistError, SearchItemNotExistError, NullSearchValueError,
-    DeleteValueError, NoItemStoredError, DeleteItemNotExistError, InvalidValueFormatError};
+    DeleteValueError, NoItemStoredError, DeleteItemNotExistError, InvalidValueFormatError,
+    UpdatePutValidatorError, UpdateError};

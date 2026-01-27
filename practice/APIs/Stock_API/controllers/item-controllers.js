@@ -1,4 +1,5 @@
-const {ItemAlreadyExistError, SearchItemNotExistError, DeleteItemNotExistError, NoItemStoredError} = require('./../error/item-error');
+const {ItemAlreadyExistError, SearchItemNotExistError, DeleteItemNotExistError, NoItemStoredError,
+    UpdateError} = require('./../error/item-error');
 
 const itemsMap = new Map();
 
@@ -89,6 +90,7 @@ function _update(toUpdate, toChange){
 
         return {toChange : itemsMap.get(toChange)};
     }
+    else throw new UpdateError(toChange);
 }
 
 module.exports = {itemAdd, showAll, searchItem, itemDelete, updateItem};

@@ -1,5 +1,6 @@
 const {z} = require('zod');
-const {NullSearchValueError, DeleteValueError, InvalidValueFormatError} = require('./../error/item-error');
+const {NullSearchValueError, DeleteValueError, InvalidValueFormatError,
+    UpdatePutValidatorError} = require('./../error/item-error');
 
 
 function itemValidator(req, res, next){
@@ -77,7 +78,7 @@ function updatePutValidator(req,res,next){
     try{
         const result = _updatePutSchematic.safeParse(req.body);
 
-        if(!result.success) throw new Error();
+        if(!result.success) throw new UpdatePutValidatorError();
 
         req.validatedBody = result.data;
 

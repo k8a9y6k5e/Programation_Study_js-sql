@@ -73,6 +73,10 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] router-express.js - Study about the use of router in API;
 - [x] zod.js - Use of the library zod to validate values;
 
+#### *asynchronous*
+
+- [x] promise.js - Study about the use and function of promise;
+
 #### *classes*
 
 - [x] class_basic.js - Study about the basic syntax of class;

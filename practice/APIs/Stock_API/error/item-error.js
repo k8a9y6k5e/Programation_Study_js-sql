@@ -54,7 +54,7 @@ class UpdateError extends ItemError{
     }
 }
 
-class UpdatePatchvalidatorError extends ItemError{
+class UpdatePatchValidatorError extends ItemError{
     constructor(){
         super("invalid value to update", 400);
     }
@@ -62,4 +62,4 @@ class UpdatePatchvalidatorError extends ItemError{
 
 module.exports = {ItemAlreadyExistError, SearchItemNotExistError, NullSearchValueError,
     DeleteValueError, NoItemStoredError, DeleteItemNotExistError, InvalidValueFormatError,
-    UpdatePutValidatorError, UpdateError, UpdatePatchvalidatorError};
+    UpdatePutValidatorError, UpdateError, UpdatePatchValidatorError};

@@ -1,6 +1,6 @@
 const {z} = require('zod');
 const {NullSearchValueError, DeleteValueError, InvalidValueFormatError,
-    UpdatePutValidatorError, UpdatePatchvalidatorError} = require('./../error/item-error');
+    UpdatePutValidatorError, UpdatePatchValidatorError} = require('./../error/item-error');
 
 
 function itemValidator(req, res, next){
@@ -50,13 +50,13 @@ function searchValidator(req,res,next){
     }
 }
 
-const _paramSchematic = z.object({
-    item : z.string().trim().min(1)
+const _paramDeleteSchematic = z.object({
+    item : z.coerce.string().trim().min(1)
 });
 
 function deleteValidator(req, res, next){
     try{
-        const result = _paramSchematic.safeParse(req.params);
+        const result = _paramDeleteSchematic.safeParse(req.params);
 
         if(!result.success) throw new DeleteValueError();
 
@@ -69,16 +69,20 @@ function deleteValidator(req, res, next){
     }
 }
 
-const _updateSchematic = z.object({
-    quantity : z.number().nonnegative(),
-    price : z.number().nonnegative()
+const _updatePutSchematic = z.object({
+    quantity : z.coerce.number().nonnegative(),
+    price : z.coerce.number().nonnegative()
+});
+
+const _paramUpdateSchematic = z.object({
+    toChange : z.coerce.string().trim().min(1)
 });
 
 function updatePutValidator(req,res,next){
     try{
-        const resultBody = _updateSchematic.safeParse(req.body);
+        const resultBody = _updatePutSchematic.safeParse(req.body);
 
-        const resultParams = _paramSchematic.safeParse(req.params);
+        const resultParams = _paramUpdateSchematic.safeParse(req.params);
 
         if(!resultBody.success && !resultParams.success) throw new UpdatePutValidatorError();
 
@@ -93,13 +97,15 @@ function updatePutValidator(req,res,next){
     }
 }
 
+const _updatePatchSchematic = _updatePutSchematic.partial();
+
 function updatePatchValidator(req,res,next){
     try{
-        const resultBody = _updateSchematic.safeParse(req.body);
+        const resultBody = _updatePatchSchematic.safeParse(req.body);
 
-        const resultParams = _paramSchematic.safeParse(req.params);
+        const resultParams = _paramUpdateSchematic.safeParse(req.params);
 
-        if(!resultBody.success || !resultParams.success) throw new UpdatePatchvalidatorError();
+        if(!resultBody.success || !resultParams.success) throw new UpdatePatchValidatorError();
 
         req.validatedBody = resultBody.data;
 

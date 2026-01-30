@@ -17,7 +17,7 @@ it return an object like this:
 function car(resolve, reject){
     const carBrandsArr = ['ferrari', 'mclaren', 'mercedes','porsche', 'toyota'];
 
-    if(!carBrandsArr.includes('nissan')) reject('don\'t have this brand');
+    if(!carBrandsArr.includes('ferrari')) reject('don\'t have this brand');
     else resolve('have this brand');
 }
 
@@ -38,3 +38,20 @@ promise.catch((err) => console.log(err));
 //finally, used to a final function/handle, works independent of the result from a promise
 
 promise.finally(() => console.log('end of code'));
+
+//it's possible add multiple handler, it's called promise chaining
+
+promise.then(value => console.log(1)).then(value => console.log(2)).then(value => console.log(4));
+
+//thenable: the use of a function then in an object which transform the object in a promise
+
+class Thenable {
+    constructor(num){this.num=num;}
+
+    then(resolve,reject){
+        console.log(this.num);
+    }
+}
+
+
+new Promise(resolve => resolve(1)).then(result => new Thenable(result));//the class Thenable are now a promise

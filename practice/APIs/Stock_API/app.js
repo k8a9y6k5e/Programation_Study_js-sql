@@ -7,11 +7,11 @@ const {logMovement} = require('./controllers/history-controller');
 const app = express();
 app.use(express.json());
 
+app.use(logMovement);
+
 app.use('/item', itemRouter);
 
 app.use(errorHandler);
-
-app.use(logMovement);
 
 app.listen(3001);
 

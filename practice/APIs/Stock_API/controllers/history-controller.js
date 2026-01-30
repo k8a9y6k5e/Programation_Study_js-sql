@@ -3,13 +3,13 @@ const movementSet = new Set();
 function logMovement(req, res, next){
     try{
         const movement = { 
-            type : req.url.slice(1, req.url.length()),
+            type : req.url.slice(1, req.url.length),
             where : Object.keys(req.body) || req.query.search || req.params.item || null,
             method : req.method,
-            date : Date.now()
+            date : new Date().toLocaleString()
         }
 
-        _log(movement);
+        _saveLog(movement);
 
         next();
     }

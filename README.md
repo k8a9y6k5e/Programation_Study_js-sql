@@ -39,7 +39,7 @@ Files where I try to *apply the things I learn in complete programs*.
 ### *APIs*
 #### programming projects using APIs model
 
-- [ ] Stock_API - API of a stock control application, first project with API routes and multiple code files
+- [x] Stock_API - API of a stock control application, first project with API routes and multiple code files
 
 ---
 
@@ -76,6 +76,7 @@ Files *applying commands and new features* to learn how each one works and how t
 #### *asynchronous*
 
 - [x] promise.js - Study about the use and function of promise;
+- [x] promise-methods.js - Study about a few methods to use in promises;
 
 #### *classes*
 

@@ -4,9 +4,11 @@ const movementSet = new Set();
 
 function logMovement(req, res, next){
     try{
+        if(req.url.split('/').includes('show')) return next();
+
         const movement = { 
             type : req.url.slice(1, req.url.length),
-            where : Object.keys(req.body) || req.query.search || req.params.item || null,
+            where : req.query.search || req.params.item || (req.body) ? Object.keys(req.body) : null,
             method : req.method,
             date : new Date().toLocaleString()
         }
@@ -39,7 +41,7 @@ function showHistory(req, res, next){
 function _getHistory(){
     if(movementSet.size == 0) throw new ClearHistoryError();
 
-    return movementSet.keys();
+    return Array.from(movementSet.keys());
 }
 
-module.exports = {logMovement,showHistory};
+module.exports = {logMovement, showHistory};

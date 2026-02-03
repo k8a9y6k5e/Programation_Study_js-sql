@@ -5,7 +5,7 @@ function creationAccountController(req,res,next){
     try{
         const id = randomUUID();
 
-        const token = _tokenCreation(req.validatedBody, id)
+        const token = _tokenCreation(req.body, id)
 
         res.status(201).json({work:true, data:token});
     }

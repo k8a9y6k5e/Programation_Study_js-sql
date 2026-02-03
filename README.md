@@ -135,6 +135,7 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] not_null.sql - Study about the constraint NOT NULL, to block null values;
 - [x] order-by.sql - Study about the command ORDER BY, and how use it;
 - [x] primary-key.sql - Study about the application of a PRIMARY KEY inside tables;
+- [x] roll-up.sql - Study about the GROUP BY estension ROLL UP to show a grand total of the column;
 - [x] rows_insertion.sql - Study about how add rows and values inside a table;
 - [x] selecting_data.sql - Study about how get a value or/and data from a table;
 - [x] self-joins.sql - Study about the use of INNER JOIN to a table join of itself;

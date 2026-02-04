@@ -23,9 +23,7 @@ ROADMAP:
 ***email
 **validator in each value enter
 **show informations
+*add a form to show the informations
 *use jwt to auth
 *use bcrypt in password
-*Sign Up
-**add a validator in each value
-**add an error handler
 */

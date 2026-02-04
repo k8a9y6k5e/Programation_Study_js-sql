@@ -2,9 +2,9 @@ const {z} = require('zod');
 const {SignUpValidatorError} = require('../error-handler/sign-up-error');
 
 const _signUpSchematic = z.object({
-    username : z.coerce.string().min(1),
+    username : z.coerce.string().trim().min(1),
     email : z.email(),
-    password : z.coerce.string().min(1)
+    password : z.coerce.string().min(6)
 });
 
 function signUpValidator(req,res,next){

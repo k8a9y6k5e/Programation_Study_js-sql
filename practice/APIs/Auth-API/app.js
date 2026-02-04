@@ -9,9 +9,9 @@ process.env.JWT_secret = "70b7c0a466a9e99e83e3c268a385cf39f7b0b724ac87c52f721d19
 
 app.use(express.json());
 
-app.use(errorMiddleWare);
-
 app.use('/signUp', signUpRouter);
+
+app.use(errorMiddleWare);
 
 app.listen(3002);
 

@@ -144,6 +144,7 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] subqueries.sql - Study about the use of subqueries inside queries;
 - [x] table_creation.sql - Study about the creation and basic use of tables;
 - [x] transactions.sql - Study about the commands of "AUTOCOMMIT", "COMMIT" and "ROLLBACK";
+- [x] triggers.sql - Study about the trigger events;
 - [x] unions.sql - Study about the use of the UNION to join the results of multiple SELECTs;
 - [x] unique.sql - Study about constraint UNIQUE, to block repeat values;
 - [x] update_delete.sql - Study about how delete and updates values inside a row;

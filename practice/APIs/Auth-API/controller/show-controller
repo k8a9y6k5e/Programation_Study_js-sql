@@ -1,0 +1,16 @@
+const jwt = require('jsonwebtoken');
+
+function showController(req,res,next){
+    try{
+        const result = 1;
+
+        res.status(200).json({work:true, data:result});
+    }
+    catch (err){
+        next(err);
+    }
+}
+
+function getInformations(token){
+    result = jwt.verify(token, process.env.JWT_secret);
+}

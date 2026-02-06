@@ -94,6 +94,10 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] custom_errors.js - The use and creations of custom error to use in error handling;
 - [x] error_hancling.js - Application of try...catch to support errors;
 
+#### *generators*
+
+- [x] generators.js - Study about the special functions called generator;
+
 #### *object-basic*
 
 - [x] chaining.js - Application of optional chaining, with the "?." symbol;

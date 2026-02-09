@@ -8,7 +8,7 @@ function logMovement(req, res, next){
 
         const movement = { 
             type : req.url.slice(1, req.url.length),
-            where : req.query.search || req.params.item || (req.body) ? Object.keys(req.body) : null,
+            where : req.query.search || req.params.item || ((req.body) ? Object.keys(req.body) : null),
             method : req.method,
             date : new Date().toLocaleString()
         }

@@ -12,7 +12,7 @@ class BaseError extends Error{
     constructor(message,statusCode){
         super(message);
         this.statusCode = statusCode;
-        this.name = this.construactor.name;
+        this.name = this.constructor.name;
     }
 
     _statusCode = undefined;

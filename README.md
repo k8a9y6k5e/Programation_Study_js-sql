@@ -96,6 +96,7 @@ Files *applying commands and new features* to learn how each one works and how t
 
 #### *generators*
 
+- [x] async-generators.js - Study about the use of asynchronous generators;
 - [x] generators.js - Study about the special functions called generator;
 
 #### *object-basic*

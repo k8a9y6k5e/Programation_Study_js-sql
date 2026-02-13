@@ -17,10 +17,3 @@ app.use('/show', showRouter);
 app.use(errorMiddleWare);
 
 app.listen(3002);
-
-/*
-ROADMAP:
-*show informations
-*add a form to show the informations
-*use jwt to auth
-*/

@@ -35,7 +35,7 @@ Files where I try to *apply the things I learn in complete programs*.
 ### *APIs*
 #### programming projects using APIs model
 
-- [x] Stock_API - API of a stock control application, first project with API routes and multiple code files
+- [x] Stock_API - API of a stock control application, first project with API routes and multiple code files;
 - [x] Auth-API - Simple API to study about the fluxe and use of jwt and autentication; 
 ---
 
@@ -118,6 +118,8 @@ Files *applying commands and new features* to learn how each one works and how t
 
 #### *others*
 
+- [x] bigInt.js - Study about the use of bigint datatype;
+- [x] currying - Study about the use of currying in functions;
 - [x] process.js - Application and study about the internal module of process, using some main commands;
 
 #### *prototypes-inheritance*

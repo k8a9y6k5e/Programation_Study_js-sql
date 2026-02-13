@@ -20,7 +20,7 @@ console.log(`current directory: ${process.cwd()}\n`);
 console.log(`start directory: ${process.cwd()}`);
 process.chdir('..');
 console.log(`new directory: ${process.cwd()}\n`);
-process.chdir('javascript');
+process.chdir('source');
 
 //process.env - return an object with user environment
 

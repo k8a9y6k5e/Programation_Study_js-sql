@@ -52,6 +52,7 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] iterables.js - Transforming into iterables and using them;
 - [x] JSON.js - Application of json values and its methods;
 - [x] map_set.js - Use and functions of Map, Set, WeakMap, and WeakSet;
+- [x] typed-arrays.js - Study about the special types of arrays;
 
 #### *advanced-functions*
 
@@ -121,6 +122,7 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] bigInt.js - Study about the use of bigint datatype;
 - [x] currying - Study about the use of currying in functions;
 - [x] process.js - Application and study about the internal module of process, using some main commands;
+- [x] type-casting.js - Study about the explicit commands of conversion;
 
 #### *prototypes-inheritance*
 

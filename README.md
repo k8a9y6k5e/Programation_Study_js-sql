@@ -122,6 +122,7 @@ Files *applying commands and new features* to learn how each one works and how t
 - [x] bigInt.js - Study about the use of bigint datatype;
 - [x] currying - Study about the use of currying in functions;
 - [x] process.js - Application and study about the internal module of process, using some main commands;
+- [x] regex.js - Study about the use of regex and the creation of regex strings;
 - [x] type-casting.js - Study about the explicit commands of conversion;
 
 #### *prototypes-inheritance*
